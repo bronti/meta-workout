@@ -28,6 +28,22 @@
               ([i (cdr p)])
       (bb-set bbs (car i) (cdr i)))))
 
+(define new-qtail
+  (lambda (q next-label)
+    (drop q (eval next-label))))
+
+(define hd
+  (lambda (l)
+    (if (equal? l '())
+        'blank
+         (car l))))
+
+(define tl
+  (lambda (l)
+    (if (equal? l '())
+        '()
+        (cdr l))))
+
 ; my-eval
 (define-namespace-anchor a)
 (define ns (namespace-anchor->namespace a))
